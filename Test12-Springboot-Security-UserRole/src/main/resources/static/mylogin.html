@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/jquery-1.11.1-min.js"></script>
+
+    <script type="text/javascript" >
+        $(function () {
+            $("#submit").click(function () {
+                // alert("click");
+                $.ajax({
+                    url:"/login",
+                    type: "post",
+                    data: {
+                        username: $("#username").val(),
+                        password: $("#password").val(),
+                        code: $("#code").val()
+
+
+                    },
+                    resultType: "json",
+                    success: function (resp) {
+                        alert(resp.msg);
+                    }
+
+
+
+                });
+
+            });
+
+
+        });
+
+
+        function changeCode() {
+            var url = "/captcha/code?t=" + new Date();
+            $("#imgCode").attr("src", url);
+        }
+
+    </script>
+</head>
+
+<body>
+Username<input id="username" value="" type="text"> <br>
+Pwd<input id="password" value="" type="text"> <br>
+captcha<input type="text" value="" id="code"><img id="imgCode" src="/captcha/code"/><a href="javasript:void(0)" onclick="changeCode()">重新获取</a> <br>
+
+<input type="button" value="ajax登录" id="submit">
+
+
+</body>
+</html>

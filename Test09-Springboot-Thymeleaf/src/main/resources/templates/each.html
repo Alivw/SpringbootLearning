@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body >
+<div align="center">
+
+    <h1>Thymeleaf 遍历List集合</h1>
+    <div th:each="user,userState:${users}">
+        <span th:text="${user.name}"></span>
+        <span th:text="${user.age}"></span>
+        <span th:text="${user.description}"></span>
+
+    </div>
+
+    <h1>Thymeleaf 遍历Map集合</h1>
+    <div th:each="user,userState:${userMaps}">
+        <span th:text="${user.key}"></span>
+        <span th:text="${user.value}"></span>
+        <span th:text="${user.value.name}"></span>
+        <span th:text="${user.value.age}"></span>
+        <span th:text="${user.value.description}"></span>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

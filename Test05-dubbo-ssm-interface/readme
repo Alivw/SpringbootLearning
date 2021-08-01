@@ -1,0 +1,14 @@
+接口工程 实体类，业务接口
+服务提供者：service实现类 mapper
+    依赖：dubbo  zookeeper redis mybatis 接口工程
+    配置springboot 核心配置文件：
+        连接数据库
+        连接redis
+        dubbo
+
+
+服务消费者：controller jsp
+    依赖：dubbo zookeeper jsp 接口工程
+    配置springboot 核心配置文件：
+        springmvc视图解析器
+        dubbo

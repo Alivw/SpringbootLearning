@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+</head>
+<body>
+<!--<h1 th:text="${message}">欢迎使用thymeleaf</h1>-->
+<h2>标准变量表达式：${}</h2>
+<h2>
+    姓名：<span th:text="${user.name}"></span>
+</h2>
+<h2>
+     年龄：<span th:text="${user.age}"></span>
+</h2>
+<h2>
+    描述：<span th:text="${user.description}"></span>
+</h2>
+
+
+<div th:object="${user}">
+    <h2>选择变量表达式：星号大括号</h2>
+    <h2>
+        姓名：<span th:text="*{name}"></span>
+    </h2>
+    <h2>
+        年龄：<span th:text="*{age}"></span>
+    </h2>
+    <h2>
+        描述：<span th:text="*{description}"></span>
+    </h2>
+</div>
+
+<h2>标准变量表达式 与 选择变量表达式的混合使用</h2>
+</body>
+</html>

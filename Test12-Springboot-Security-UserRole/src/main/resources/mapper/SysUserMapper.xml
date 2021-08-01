@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace: mapper类的全限定名称-->
+<mapper namespace="com.awei.security.mapper.SysUserMapper">
+
+    <sql id="ALL">
+        id,username,password,isenable,islock,iscredentials,createtime,logintime,realname,isExpired
+
+    </sql>
+   <insert id="insertSysUser">
+       insert into sys_user(username,password,isenable,islock,iscredentials,createtime,logintime,realname,isExpired)
+       values(#{username},#{password},#{isenable},#{islock},#{iscredentials},#{createtime},#{logintime},#{realname},#{isExpired})
+   </insert>
+
+    <select id="selectUserByName" resultType="Sysuser">
+        select
+        <include refid="ALL"/>
+        from   sys_user where username =#{username}
+    </select>
+</mapper>

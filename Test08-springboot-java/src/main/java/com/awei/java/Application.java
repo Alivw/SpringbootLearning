@@ -1,0 +1,18 @@
+package com.awei.java;
+
+import com.awei.java.service.Service;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
+		Service serviceImpl = (Service) applicationContext.getBean("serviceImpl");
+		String he = serviceImpl.sayHello();
+		System.out.println(he);
+	}
+
+}

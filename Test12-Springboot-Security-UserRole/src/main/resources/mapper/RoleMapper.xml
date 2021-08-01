@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace: mapper类的全限定名称-->
+<mapper namespace="com.awei.security.mapper.RoleMapper">
+    <sql id="ALL">
+
+        id ,rolename ,rolememo
+
+    </sql>
+    <select id="selectSysRoleByUserId" resultType="SysRole">
+
+        select r.id,r.rolename,r.rolememo FROM sys_user_role ur JOIN sys_role r ON ur.roleid=r.id WHERE ur.userid =#{userid}
+
+
+
+    </select>
+</mapper>
